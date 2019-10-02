@@ -3,6 +3,9 @@ import 'package:shop_helper_flutter/managers/db_manager.dart';
 
 import 'purchase.dart';
 
+// contains all purchases for a particular day
+
+// Provider package for state management https://pub.dev/packages/provider
 class DailyPurchases with ChangeNotifier {
   final String _date;
   final List<Purchase> _purchasesList = [];
@@ -18,6 +21,7 @@ class DailyPurchases with ChangeNotifier {
   List<Purchase> get purchasesList => List.from(_purchasesList);
   Purchase get newPurchase => _newPurchase;
 
+  // adding purchase by user
   void addNewPurchase() {
     _newPurchase.newProduct.setPrice(0.0);
     _newPurchase.newProduct.setQuantity(0);
@@ -36,6 +40,7 @@ class DailyPurchases with ChangeNotifier {
     notifyListeners();
   }
 
+  // add purchase from SQl table when launchung the app
   void addPurchaseFromTable(Purchase purchase) {
     _purchasesList.add(purchase);
     _newPurchase = Purchase(
@@ -59,7 +64,8 @@ class DailyPurchases with ChangeNotifier {
     );
     notifyListeners();
   }
-
+ 
+  // cancel removing in case of missclick
   void undoRemoving(int index) async {
     _purchasesList.insert(index, Purchase.from(_removedPurchase));
     for (final product in _removedPurchase.productsList)

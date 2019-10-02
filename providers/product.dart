@@ -5,6 +5,7 @@ import 'package:shop_helper_flutter/managers/db_manager.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart' as path;
 
+
 class Product with ChangeNotifier {
   String _id;
   int _quantity;

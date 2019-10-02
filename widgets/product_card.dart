@@ -14,11 +14,14 @@ import 'package:shop_helper_flutter/widgets/text_fields/quantity_field.dart';
 import 'package:shop_helper_flutter/widgets/text_fields/sum_field.dart';
 import 'package:shop_helper_flutter/widgets/text_fields/title_field.dart';
 
+
+// UI element diplayed in editable animated list
 class ProductCard extends StatelessWidget {
   final Function _delete;
 
   ProductCard(this._delete);
 
+  // take photo from smartphone camera
   Future<void> _takePicture(Product product) async {
     final imageFile = await ImagePicker.pickImage(source: ImageSource.camera);
 

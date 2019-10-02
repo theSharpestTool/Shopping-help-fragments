@@ -13,9 +13,9 @@ class ProductsPage extends StatefulWidget {
 class _ProductsPageState extends State<ProductsPage> {
   bool _showDropdown = false;
   Purchase _purchase;
-  final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
+  final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>(); // key for AnimatedList manipulating 
 
-  void _callDropdown() => setState(() => _showDropdown = !_showDropdown);
+  void _callDropdown() => setState(() => _showDropdown = !_showDropdown); // show currency selector
 
   @override
   Widget build(BuildContext context) {

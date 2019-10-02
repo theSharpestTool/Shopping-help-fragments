@@ -3,6 +3,8 @@ import 'package:shop_helper_flutter/providers/main_provider.dart';
 import 'package:flutter_isolate/flutter_isolate.dart';
 import 'dart:isolate';
 
+
+// Isolate is needed because pdf file generation locks ui
 class IsolateManager {
   SendPort newIsolateSendPort;
   FlutterIsolate newIsolate;
@@ -19,6 +21,7 @@ class IsolateManager {
     }
   }
 
+  // thread creation
   Future<void> _callerCreateIsolate() async {
     ReceivePort receivePort = ReceivePort();
     newIsolate =
@@ -26,6 +29,7 @@ class IsolateManager {
     newIsolateSendPort = await receivePort.first;
   }
 
+  // exchange data between isolates
   Future<List<int>> _sendRecieve() async {
     final port = ReceivePort();
     newIsolateSendPort.send({
@@ -36,6 +40,7 @@ class IsolateManager {
     return bytes;
   }
 
+  // executed in separate thread
   static void _isolateFunction(SendPort sendPort) {
     ReceivePort newIsolateReceivePort = ReceivePort();
     sendPort.send(newIsolateReceivePort.sendPort);

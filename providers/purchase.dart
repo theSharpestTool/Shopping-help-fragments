@@ -3,6 +3,8 @@ import 'package:shop_helper_flutter/providers/selector_provider.dart';
 import 'package:shop_helper_flutter/providers/product.dart';
 import 'package:shop_helper_flutter/managers/db_manager.dart';
 
+
+// purchase assigned to date and contains products
 class Purchase with ChangeNotifier {
   String _name;
   Product _newProduct = Product(title: "", quantity: 0, price: 0.0);

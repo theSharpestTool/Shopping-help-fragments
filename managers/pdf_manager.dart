@@ -6,6 +6,9 @@ import 'dart:typed_data';
 import 'package:flutter/services.dart';
 import 'package:image/image.dart' as img;
 
+
+// output of application is pdf report
+// class creates report from users data
 class PDFManager {
   static final PDFManager _singleton = PDFManager._internal();
   factory PDFManager() {

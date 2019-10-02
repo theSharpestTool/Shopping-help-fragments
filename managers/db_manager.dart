@@ -6,12 +6,16 @@ import 'package:shop_helper_flutter/providers/product.dart';
 import 'package:shop_helper_flutter/providers/daily_purchases.dart';
 import 'package:intl/intl.dart';
 
+
+//Facade for interacion with SQLite database
 class DBManager {
+  //Singleton pattern for global access to one single instace
   static final DBManager _singleton = DBManager._internal();
   factory DBManager() => _singleton;
   DBManager._internal();
   Database db;
 
+  // provide access to database
   Future<void> init() async {
     final databasesPath = await sql.getDatabasesPath();
     final purchasesDBpath = path.join(databasesPath, "purchases.db");

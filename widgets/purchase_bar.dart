@@ -3,10 +3,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:shop_helper_flutter/providers/purchase.dart';
 
+
+// Products page app bar
 class PurchaseBar extends StatefulWidget {
   final Function _callDropdown;
 
-  PurchaseBar(this._callDropdown);
+  PurchaseBar(this._callDropdown); // show currency selector
 
   @override
   _PurchaseBarState createState() => _PurchaseBarState();
